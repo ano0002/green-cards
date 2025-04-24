@@ -140,3 +140,86 @@ footer {
 .btn:hover {
     background: #45a049;
 }
+
+/* Styling for the card list container */
+#card-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to the next row */
+    justify-content: space-between; /* Adds space between cards */
+    gap: 10px; /* Optional: Adds spacing between cards */
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Styling for individual cards */
+.card {
+    width: calc(20% - 10px); /* 20% width for 5 cards per row, minus gap adjustment */
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%; /* Ensures the image fits within the card */
+    border-radius: 5px;
+}
+
+.card-title {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: white;
+}
+
+#common{
+    background-color: rgb(168, 168, 168);
+}
+
+#uncommon{
+    background-color: rgb(69, 165, 69);
+}
+
+#rare{
+    background-color: rgb(127, 127, 250);
+}   
+
+#epic{
+    background-color: rgb(158, 21, 158);
+}
+
+#legendary{
+    background-color: rgb(223, 190, 5);
+}
+
+/* Center the login form on the page */
+.login-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #f9f9f9; /* Optional: Background color */
+}
+
+.login-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Optional: Set a fixed width */
+    text-align: center;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
