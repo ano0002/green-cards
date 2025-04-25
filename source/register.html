@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Green Cards</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title"><a href="home.html" style="text-decoration: none; color: inherit;">Green Cards</a></h1>
+        <div style="float: right;"></div>
+            <button id="login" onclick="window.location.href='login.html'">Login</button>
+            <button id="profile" onclick="window.location.href='profile.html'">Profile</button>
+        </div>
+    </header>
+    <main>
+        <!-- Similar to your login.html but with registration fields -->
+<div class="login-container">
+    <form action="register.php" method="POST" class="login-form">
+        <h2>Register</h2>
+        
+        <?php if (isset($_GET['error'])): ?>
+            <div class="error-message" style="color: red; margin-bottom: 15px;">
+                <?php 
+                    if ($_GET['error'] == 1) echo "Please fill all fields and ensure passwords match";
+                    if ($_GET['error'] == 2) echo "Username already exists";
+                ?>
+            </div>
+        <?php endif; ?>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn">Register</button>
+            <button type="button" class="btn" onclick="window.location.href='login.html'">Back to Login</button>
+        </div>
+    </form>
+</div>
+    </main>
+    <footer>
+        <p>Green Cards | EFREI | TI601 - Green IT</p>
+    </footer>
+    <script>
+        document.getElementById('login').classList.add('active');
+    </script>
+</body>
+</html>
