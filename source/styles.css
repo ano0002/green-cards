@@ -223,3 +223,59 @@ footer {
     justify-content: space-between;
     margin-top: 20px;
 }
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* Styling for the question list */
+#question-list {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 20px 0;
+}
+
+#question-list .question {
+    margin: 20px 20%; /* Add 10% margin on the left and right */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#question-list .question h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#question-list .question p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+#question-list .answer-input {
+    width: calc(100% - 100px); /* Adjust width to leave space for the button */
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#question-list .btn {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#question-list .btn:hover {
+    background: #45a049;
+    cursor: pointer;
+}
