@@ -1,0 +1,26 @@
+# Dependency directories
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env*.local
+
+# Build folders
+dist/
+build/
+out/
+.next/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS/Editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Coverage reports
+coverage/
