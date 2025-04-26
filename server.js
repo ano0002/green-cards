@@ -1,26 +1,18 @@
-const express = require('express');
-const path = require('path');
+import express from "express";
+
+import apiRouter from "./api/router.js";
+
 const app = express();
-
-// Serve static files from 'source' directory
-app.use(express.static(path.join(__dirname, 'source')));
-
-// Route handlers
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'source', 'home.html'));
-});
-
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'source', 'login.html'));
-});
-
-// Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+
+app.use(express.static("public"));
+
+app.use("/api", apiRouter);
+
+app.use((req, res) => {
+  res.status(404).send("Page not found");
 });
 
-// Then at the end of the file:
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

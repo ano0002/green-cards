@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Green Cards project",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
@@ -15,7 +16,8 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
-    "mongoose": "^8.13.3"
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

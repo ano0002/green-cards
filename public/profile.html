@@ -8,11 +8,14 @@
 </head>
 <body>
     <header>
-        <h1 id="title"><a href="home.html" style="text-decoration: none; color: inherit;">Green Cards</a></h1>
-        <div style="float: right;"></div>
-            <button id="login" onclick="window.location.href='login.html'">Login</button>
-            <button id="profile" onclick="window.location.href='profile.html'">Profile</button>
-        </div>
+        <h1 id="title"><a href="/" style="text-decoration: none; color: inherit;">Green Cards</a></h1>
+        <h2>Profile</h2>
+        <nav>
+            <a id="login" href='login.html'>Login/Register</a>
+            <a id="logout" href='login.html' style="display:none;">Logout</a>
+            <a id="profile" href='profile.html' style="display:none;">Profile</a>
+        </nav>
+        <script src="./js/header.js"></script>
     </header>
     <main>
         <h2>Your profile</h2>
@@ -86,24 +89,7 @@
         </div>
     </main>
     <footer>
-        <p>Green Cards | EFREI | TI601 - Green IT</p>
+        <p>Green Cards &copy; 2025</p>
     </footer>
-    <script>
-        document.getElementById('profile').classList.add('active');
-    </script>
-    <script src="cards_script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealedCards = JSON.parse(localStorage.getItem('revealedCards')) || [];
-            revealedCards.forEach(cardId => {
-                const card = document.getElementById(cardId);
-                if (card) {
-                    card.classList.remove('hidden'); // Reveal the card
-                }
-            });
-        });
-
-        //localStorage.removeItem('revealedCards'); // To reveal all cards again
-    </script>
 </body>
 </html>

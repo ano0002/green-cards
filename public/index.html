@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Cards</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title"><a href="/" style="text-decoration: none; color: inherit;">Green Cards</a></h1>
+        <h2>Today's GreenIT Question</h2>
+        <nav>
+            <a id="login" href='login.html'>Login/Register</a>
+            <a id="logout" href='login.html' style="display:none;">Logout</a>
+            <a id="profile" href='profile.html' style="display:none;">Profile</a>
+        </nav>
+        <script src="./js/header.js"></script>
+    </header>
+    <main>
+        <h3>Answer the question below to earn a Green Card</h3>
+        <article class="question">
+            <p id="question">The question</p>
+            <input type="text" id="answer" placeholder="Enter your answer here...">
+            <button id="submit" onclick="submitAnswer()">Submit</button>
+        </article>
+    </main>
+    <footer>
+        <p>Green Cards &copy; 2025</p>
+    </footer>
+    <script src="./js/script.js" defer></script>
+</body>
+</html>

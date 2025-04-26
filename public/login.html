@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Green Cards</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title"><a href="/" style="text-decoration: none; color: inherit;">Green Cards</a></h1>
+        <h2>Login</h2>
+        <nav>
+            <a id="login" href='login.html'>Login/Register</a>
+            <a id="logout" href='login.html' style="display:none;">Logout</a>
+            <a id="profile" href='profile.html' style="display:none;">Profile</a>
+        </nav>
+        <script src="./js/header.js"></script>
+    </header>
+    <main>
+        <div class="login-container">
+            <form action="login.php" method="POST">
+                <h2>Login</h2>
+                
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+        
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div>
+                <a href="register.html" class="black-underline">No account, Create One</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Green Cards &copy; 2025</p>
+    </footer>
+</body>
+</html>
