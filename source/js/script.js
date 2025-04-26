@@ -39,6 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
         "placeholder"
     ];
 
+    // Function to reveal a card
+    function revealCard(questionNumber) {
+        const cardId = `card_${questionNumber + 1}`; // Map question index to card ID (1-based)
+
+        // Save the revealed card ID to localStorage
+        let revealedCards = JSON.parse(localStorage.getItem('revealedCards')) || [];
+        if (!revealedCards.includes(cardId)) {
+            revealedCards.push(cardId);
+            localStorage.setItem('revealedCards', JSON.stringify(revealedCards));
+        }
+
+        console.log(`Card ${cardId} has been revealed!`);
+    }
+
     // Add event listeners to check answers
     questions.forEach((question, index) => {
         const input = question.querySelector('.answer-input');
@@ -64,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Hide input and button
                     input.style.display = 'none';
                     button.style.display = 'none';
+
+                    // Reveal the corresponding card
+                    revealCard(index);
                 } else {
                     feedback.textContent = "Wrong answer, please try again.";
                     feedback.style.color = 'red';

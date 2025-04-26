@@ -141,20 +141,21 @@ footer {
     background: #45a049;
 }
 
+
 /* Styling for the card list container */
 #card-list {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping to the next row */
-    justify-content: space-between; /* Adds space between cards */
-    gap: 10px; /* Optional: Adds spacing between cards */
-    list-style: none; /* Removes default list styling */
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 10px; 
+    list-style: none; 
     padding: 0;
     margin: 20px 0;
 }
 
-/* Styling for individual cards */
+
 .card {
-    width: calc(20% - 10px); /* 20% width for 5 cards per row, minus gap adjustment */
+    width: calc(20% - 10px); 
     text-align: center;
     border-radius: 5px;
     padding: 10px;
@@ -162,7 +163,7 @@ footer {
 }
 
 .card img {
-    max-width: 100%; /* Ensures the image fits within the card */
+    max-width: 100%; 
     border-radius: 5px;
 }
 
@@ -172,33 +173,33 @@ footer {
     color: white;
 }
 
-#common{
+.common{
     background-color: rgb(168, 168, 168);
 }
 
-#uncommon{
+.uncommon{
     background-color: rgb(69, 165, 69);
 }
 
-#rare{
+.rare{
     background-color: rgb(127, 127, 250);
 }   
 
-#epic{
+.epic{
     background-color: rgb(158, 21, 158);
 }
 
-#legendary{
+.legendary{
     background-color: rgb(223, 190, 5);
 }
 
 /* Center the login form on the page */
 .login-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 100vh; /* Full viewport height */
-    background-color: #f9f9f9; /* Optional: Background color */
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    background-color: #f9f9f9; 
 }
 
 .login-form {
@@ -206,7 +207,7 @@ footer {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Optional: Set a fixed width */
+    width: 300px;
     text-align: center;
 }
 
@@ -234,13 +235,13 @@ footer {
 
 /* Styling for the question list */
 #question-list {
-    list-style: none; /* Remove default list styling */
+    list-style: none;
     padding: 0;
     margin: 20px 0;
 }
 
 #question-list .question {
-    margin: 20px 20%; /* Add 10% margin on the left and right */
+    margin: 20px 20%; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -259,7 +260,7 @@ footer {
 }
 
 #question-list .answer-input {
-    width: calc(100% - 100px); /* Adjust width to leave space for the button */
+    width: calc(100% - 100px);
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
@@ -278,4 +279,10 @@ footer {
 #question-list .btn:hover {
     background: #45a049;
     cursor: pointer;
+}
+
+
+/* Hidden class */
+.hidden {
+    display: none;
 }
