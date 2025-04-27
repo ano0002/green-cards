@@ -1,12 +1,12 @@
 import { Router } from "express";
 import jwt from "jsonwebtoken";
-import db from "./db.js";
+import makeRequest from "./db.js";
 
 const questionsRouter = Router();
 
 questionsRouter.get("/today", async (req, res) => {
     try {
-        const [rows] = await db.execute("SELECT sentence FROM questions");
+        const rows = await makeRequest("SELECT sentence FROM questions");
         if (rows.length === 0) {
             return res.status(404).json({ error: "No questions found" });
         }
@@ -29,7 +29,7 @@ questionsRouter.post("/today", async (req, res) => {
         if (!answer) {
             return res.status(400).json({ message: "Answer is required" });
         }
-        const [rows] = await db.execute("SELECT expected_answer FROM questions");
+        const rows = await makeRequest("SELECT expected_answer FROM questions");
         if (rows.length === 0) {
             return res.status(404).json({ message: "No questions found" });
         }
@@ -48,7 +48,7 @@ questionsRouter.post("/today", async (req, res) => {
                     
                     //Get last card added to the owned_cards table
 
-                    const [lastCard] = await db.execute("SELECT created_at FROM owned_cards WHERE username = ? ORDER BY created_at DESC LIMIT 1", [username])
+                    const lastCard = await makeRequest("SELECT created_at FROM owned_cards WHERE username = ? ORDER BY created_at DESC LIMIT 1", [username])
 
                     if (lastCard.length > 0) {
                         const lastCardDate = new Date(lastCard[0].created_at);
@@ -60,25 +60,19 @@ questionsRouter.post("/today", async (req, res) => {
                     }
 
                     //Get unowned cards from the database
-                    db.execute("SELECT id,name FROM cards WHERE id NOT IN (SELECT id FROM owned_cards WHERE username = ?)", [username])
-                        .then(async ([cards]) => {
-                            if (cards.length === 0) {
-                                return res.status(200).json({ message: "Correct Answer but you own all the cards already" });
-                            }
-                            // Pick a random card from the unowned cards
-                            const rndCardIndex = Math.floor(Math.random() * cards.length);
-                            const rndCardId = cards[rndCardIndex].id;
-                            const rndCardName = cards[rndCardIndex].name;
-                            
-                            // Add the card to the user's owned cards
-                            await db.execute("INSERT INTO owned_cards (username, id) VALUES (?, ?)", [username, rndCardId]);
-                            res.status(200).json({ message: "Correct answer, you obtained "+ rndCardName});
-                        })
-                        .catch((error) => {
-                            console.error("Error adding card:", error);
-                            res.status(500).json({ message: "Internal server error" });
-                        });
-
+                    const cards = await makeRequest("SELECT id,name FROM cards WHERE id NOT IN (SELECT id FROM owned_cards WHERE username = ?)", [username])
+                    
+                    if (cards.length === 0) {
+                        return res.status(200).json({ message: "Correct Answer but you own all the cards already" });
+                    }
+                    // Pick a random card from the unowned cards
+                    const rndCardIndex = Math.floor(Math.random() * cards.length);
+                    const rndCardId = cards[rndCardIndex].id;
+                    const rndCardName = cards[rndCardIndex].name;
+                    
+                    // Add the card to the user's owned cards
+                    makeRequest("INSERT INTO owned_cards (username, id) VALUES (?, ?)", [username, rndCardId]);
+                    res.status(200).json({ message: "Correct answer, you obtained "+ rndCardName});
                 });
             } else {
                 res.status(200).json({ message: "Correct answer" });
