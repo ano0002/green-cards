@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Green Cards</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/profile.css">
 </head>
 <body>
     <header>
@@ -12,23 +13,20 @@
         <h2>Profile</h2>
         <nav>
             <a id="login" href='login.html'>Login/Register</a>
-            <a id="logout" href='login.html' style="display:none;">Logout</a>
             <a id="profile" href='profile.html' style="display:none;">Profile</a>
+            <a id="logout" href='login.html' style="display:none;">Logout</a>
         </nav>
         <script src="./js/header.js"></script>
     </header>
     <main>
-        <h2>Your profile</h2>
-        <p>Username : </p>
-        <p>Registered on : </p>
+        <h1>Username : <span id="username"></span></h1>
         <h2>Your card collection :</h2>
-        <div id="card-collection">
-        <ul id="card-list">
-        </ul>
-        </div>
+        <section id="card-list">
+        </section>
     </main>
     <footer>
         <p>Green Cards &copy; 2025</p>
     </footer>
+    <script src="./js/profile.js" defer></script>
 </body>
 </html>

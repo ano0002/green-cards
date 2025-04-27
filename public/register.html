@@ -12,32 +12,32 @@
         <h2>Register</h2>
         <nav>
             <a id="login" href='login.html'>Login/Register</a>
-            <a id="logout" href='login.html' style="display:none;">Logout</a>
             <a id="profile" href='profile.html' style="display:none;">Profile</a>
+            <a id="logout" href='login.html' style="display:none;">Logout</a>
         </nav>
         <script src="./js/header.js"></script>
     </header>
     <main>
         <div class="login-container">
-            <form action="register.php" method="POST">
+            <form id="register-form">
                 <h2>Register</h2>
                 
                 <div>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" autocomplete="username" required>
                 </div>
 
                 <div>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" autocomplete="new-password" required>
                 </div>
 
                 <div>
                     <label for="confirm_password">Confirm Password:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required>
                 </div>
 
-                <button type="submit">Register</button>
+                <button type="submit" id="register-btn">Register</button>
             </form>
             <div>
                 <a href="login.html" class="black-underline">You have an account, Login instead</a>
@@ -47,5 +47,6 @@
     <footer>
         <p>Green Cards &copy; 2025</p>
     </footer>
+    <script src="./js/register.js" defer></script>
 </body>
 </html>
